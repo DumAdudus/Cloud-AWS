@@ -21,7 +21,7 @@ LocalAccount = os.environ['LocalAccount']
 
 def register_falcon_discover_account(payload, api_keys, api_method) -> bool:
     cs_action = api_method
-    url = "https://api.crowdstrike.com/cloud-connect-aws/entities/accounts/v1?mode=manual"
+    url = "https://api.us-2.crowdstrike.com/cloud-connect-aws/entities/accounts/v1?mode=manual"
     auth_token = get_auth_token(api_keys)
     if auth_token:
         auth_header = get_auth_header(auth_token)
@@ -70,7 +70,7 @@ def get_auth_token(api_keys):
 
     FalconClientId = api_keys['FalconClientId']
     FalconSecret = api_keys['FalconSecret']
-    url = "https://api.crowdstrike.com/oauth2/token"
+    url = "https://api.us-2.crowdstrike.com/oauth2/token"
     payload = 'client_secret=' + FalconSecret + '&client_id=' + FalconClientId
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'

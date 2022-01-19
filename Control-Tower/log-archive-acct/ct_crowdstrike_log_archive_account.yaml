@@ -80,7 +80,7 @@ Parameters:
     Description: Name of the IAM role used within CrowdStrike to assume access to. Do not modify
       your account.
     Type: String
-    Default: "CS-Prod-HG-CsCloudconnectaws"
+    Default: "mav-gyr-main-s001-cs-cloudconnectaws"
 
   FalconClientId:
     Description: Falcon OAuth2 Client ID.
@@ -125,7 +125,6 @@ Resources:
                 - ''
                 - - 'arn:aws:s3:::'
                   - !Ref LogArchiveBucketName
-                  - '/*'
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AWSLambdaExecute
 
@@ -221,6 +220,7 @@ Resources:
                 - ''
                 - - 'arn:aws:s3:::'
                   - !Ref 'LogArchiveBucketName'
+                  - '/*'
             Sid: ''
         Version: '2012-10-17'
       Roles:
@@ -297,7 +297,7 @@ Resources:
           LocalAccount: !Ref AWS::AccountId
 
       Code:
-        S3Bucket: !FindInMap [ S3perRegion, !Ref "AWS::Region", NAME ]
+        S3Bucket: bma-cs-logarch
         S3Key: register_logarchive_account.zip
       Layers:
         - !Ref lambdaLayer
