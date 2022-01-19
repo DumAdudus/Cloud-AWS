@@ -40,7 +40,7 @@ Parameters:
   CSAssumingRoleName:
     Type: String
     Description: Assuming IAM Role Name
-    Default: CS-Prod-HG-CsCloudconnectaws
+    Default: mav-gyr-main-s001-cs-cloudconnectaws
   LogArchiveAccount:
     Type: String
     Description: AccountId of Log Archive Bucket

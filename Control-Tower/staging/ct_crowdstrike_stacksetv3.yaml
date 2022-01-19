@@ -68,7 +68,7 @@ Parameters:
     Description: Name of the IAM role used within CrowdStrike to assume access to
       your account.
     Type: String
-    Default: "CS-Prod-HG-CsCloudconnectaws"
+    Default: "mav-gyr-main-s001-cs-cloudconnectaws"
 
   LogArchiveAccount:
     Type: String
@@ -162,7 +162,7 @@ Resources:
           aws_region: !Ref AWS::Region
           delay_timer: !Ref RoleCreationDelayTimer
       Code:
-        S3Bucket: !FindInMap [ S3perRegion, !Ref "AWS::Region", NAME ]
+        S3Bucket: bitdeer-crowdstrike-bma-master
         S3Key: register_new_accountv2.zip
       Layers:
         - !Ref lambdaLayer
